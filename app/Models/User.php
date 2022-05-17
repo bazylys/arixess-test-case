@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -41,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function formRequests(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(FormRequest::class, 'author_id');
+    }
 }
