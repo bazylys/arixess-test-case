@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewFormRequest extends Mailable
+class NewFormRequest extends Mailable implements ShouldQueue
 {
     use Queueable;
     use SerializesModels;
