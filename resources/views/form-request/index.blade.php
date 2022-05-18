@@ -92,8 +92,9 @@
     @push('scripts')
         <script>
             function send_processed_status(id) {
-                let default_url = '{{ route('form-request.update', ['id' => '{id}']) }}'
-                let url = default_url.replace('{id}', id)
+                let default_url = '{{ route('form-request.update', '@id@') }}'
+                let url = default_url.replace('@id@', id)
+
                 axios.put(url, {
                     processed: true,
                 })
