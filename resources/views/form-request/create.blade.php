@@ -10,7 +10,22 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
+                        @if (session('msg'))
+                            <div class="alert mb-4 bg-indigo-50 rounded-lg py-5 px-6 mb-3 text-base text-yellow-70 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                                <strong class="mr-2">
+                                    {{ session('msg') }}
+                                </strong>
+                            </div>
+                        @endif
+                        @error('msg')
+                            <div class="alert mb-4 bg-gray-800 rounded-lg py-5 px-6 mb-3 text-base text-white inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                                <strong class="mr-2">
+                                    {{ $message }}
+                                </strong>
+                            </div>
+                        @enderror
                         <div class="md:grid md:grid-cols-3 md:gap-6">
+
                             <div class="md:col-span-1">
                                 <div class="px-4 sm:px-0">
                                     <h3 class="text-lg font-medium leading-6 text-gray-900">New Request</h3>
@@ -20,11 +35,6 @@
                             <div class="mt-5 md:mt-0 md:col-span-2">
                                 <form action="{{ route('form-request.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @error('msg')
-                                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xl mt-1 ml-1">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
                                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                                             <div class="col-span-6">
