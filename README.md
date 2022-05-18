@@ -40,6 +40,10 @@ DB_USERNAME=your_db_user
 DB_PASSWORD=your_db_password
 ```
 ```
+QUEUE_CONNECTION=database
+```
+
+```
 MAIL_MAILER=smtp
 MAIL_HOST=mailhog
 MAIL_PORT=1025
