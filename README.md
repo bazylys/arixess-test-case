@@ -62,4 +62,29 @@ Make laravel configuration
   ./vendor/bin/sail artisan key:generate
   ./vendor/bin/sail artisan migrate
   ./vendor/bin/sail artisan storage:link
+  ./vendor/bin/sail artisan queue:work          // should be working
 ```
+
+### Manager user
+
+If you want to create default manager user with credentials
+
+| Email | Password     |
+| :-------- | :------- |
+| `manager@arixess` | `Arixess1` |
+
+run:
+```bash
+./vendor/bin/sail artisan db:seed --class=ManagerSeeder
+```
+
+OR you can create it by yourself using:
+
+```bash
+./vendor/bin/sail artisan manager:create
+```
+### 🚀 Your project located:
+
+**Main page:** http://localhost
+
+**Mailhog:** http://localhost:8025/
