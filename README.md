@@ -62,6 +62,8 @@ Make laravel configuration
   ./vendor/bin/sail artisan key:generate
   ./vendor/bin/sail artisan migrate
   ./vendor/bin/sail artisan storage:link
+  ./vendor/bin/sail npm install
+  ./vendor/bin/sail npm run dev
   ./vendor/bin/sail artisan queue:work          // should be working
 ```
 
