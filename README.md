@@ -41,7 +41,7 @@ DB_PASSWORD=your_db_password
 ```
 ```
 MAIL_MAILER=smtp
-MAIL_HOST=localhost
+MAIL_HOST=mailhog
 MAIL_PORT=1025
 MAIL_USERNAME=null
 MAIL_PASSWORD=null
