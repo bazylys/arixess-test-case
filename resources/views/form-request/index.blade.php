@@ -92,7 +92,7 @@
     @push('scripts')
         <script>
             function send_processed_status(id) {
-                axios.put(window.location + id, {
+                axios.put(window.location + '/' + id, {
                     processed: true,
                 })
                     .then(function (response) {
