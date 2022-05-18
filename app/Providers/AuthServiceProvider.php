@@ -28,5 +28,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('manage-requests', function ($user) {
             return $user->role_id == config('auth.user_roles.manager');
         });
+
+        Gate::define('create-requests', function ($user) {
+            return $user->role_id == config('auth.user_roles.user');
+        });
     }
 }

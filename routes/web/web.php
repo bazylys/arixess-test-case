@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\FormRequestController;
@@ -14,14 +14,14 @@ use App\Http\Controllers\FormRequestController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-//
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        if (Gate::allows('manage-requests')) {
+            return redirect()->route('form-request.index');
+        }
+        return redirect()->route('form-request.create');
+    })->name('home');
+
     Route::resource('form-request', FormRequestController::class)->only(['create', 'store', 'index', 'update']);
 });
