@@ -17,7 +17,7 @@ class ManagerSeeder extends Seeder
         User::query()->create([
             'name' => 'Manager',
             'email' => 'manager@arixess',
-            'password' => 'Arixess1',
+            'password' => bcrypt('Arixess1'),
             'role_id' => config('auth.user_roles.manager'),
         ]);
     }
